@@ -421,12 +421,6 @@ C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net
 C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\WebServiceApi.TagHelpers.input.cache
 C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\WebServiceApi.TagHelpers.output.cache
 C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\WebServiceApi.RazorCoreGenerate.cache
-C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\Razor\Views\AuthView\Create.cshtml.g.cs
-C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\Razor\Views\AuthView\Delete.cshtml.g.cs
-C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\Razor\Views\AuthView\Details.cshtml.g.cs
-C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\Razor\Views\AuthView\Edit.cshtml.g.cs
-C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\Razor\Views\AuthView\Index.cshtml.g.cs
-C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\Razor\Views\AuthView\Login.cshtml.g.cs
 C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\Razor\Views\ScheduleForms\Agenda.cshtml.g.cs
@@ -449,3 +443,4 @@ C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net
 C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\ref\WebServiceApi.dll
 C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\WebServiceApi.pdb
 C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\WebServiceApi.genruntimeconfig.cache
+C:\Users\grace.torres\source\repos\TCC\WebServiceApi\WebServiceApi\obj\Debug\net5.0\WebServiceApi.csprojAssemblyReference.cache

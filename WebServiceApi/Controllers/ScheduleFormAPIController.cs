@@ -9,9 +9,7 @@ using WebServiceApi.Hypermedia.Filters;
 
 namespace WebServiceApi.Controllers
 {
-    // [ApiVersion("1")]
     [ApiController]
-   // [Route("api/v{version:apiVersion}/[controller]")]
     [Route("api/v1/[controller]")]
     public class ScheduleFormAPIController : ControllerBase
     {
@@ -23,27 +21,24 @@ namespace WebServiceApi.Controllers
             _logger = logger;
             _scheduleFormsBusiness = scheduleFormsBusiness;
         }
-
-        // GET: api/ScheduleFormAPI
-        [HttpGet]
+        [HttpGet()]
         [ProducesResponseType((200), Type = typeof(List<ScheduleFormVO>))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [TypeFilter(typeof(HypermediaFilter))]
-        public async Task<ActionResult<IEnumerable<ScheduleFormVO>>> GetSchedulesForms()
+        public IActionResult Get()
         {
             return Ok(_scheduleFormsBusiness.FindAll());
         }
 
-        // GET: api/ScheduleFormAPI/5
         [HttpGet("{id}")]
         [ProducesResponseType((200), Type = typeof(ScheduleFormVO))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [TypeFilter(typeof(HypermediaFilter))]
-        public async Task<ActionResult<ScheduleFormVO>> GetScheduleForm(long id)
+        public IActionResult Get(long id)
         {
             var scheduleForm = _scheduleFormsBusiness.FindByID(id);
 
@@ -58,7 +53,7 @@ namespace WebServiceApi.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [TypeFilter(typeof(HypermediaFilter))]
-        public async Task<ActionResult<ScheduleFormVO>> GetScheduleForm([FromQuery] string name)
+        public IActionResult Get([FromQuery] string name)
         {
             var scheduleForm = _scheduleFormsBusiness.FindByName(name);
 
@@ -67,45 +62,29 @@ namespace WebServiceApi.Controllers
             return Ok(scheduleForm);
         }
 
-        // PUT: api/ScheduleFormAPI/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        [Authorize("Bearer")]
-        [ProducesResponseType((200), Type = typeof(ScheduleFormVO))]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(401)]
-        [TypeFilter(typeof(HypermediaFilter))]
-        public async Task<IActionResult> PutScheduleForm(long id, ScheduleFormVO scheduleFormVO)
-        {
-            if (scheduleFormVO == null) return BadRequest();
-            var updateScheduleForm = _scheduleFormsBusiness.Update(scheduleFormVO);
-            return Ok(updateScheduleForm);
-        }
-
-            // POST: api/ScheduleFormAPI
-            // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         [ProducesResponseType((200), Type = typeof(ScheduleFormVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [TypeFilter(typeof(HypermediaFilter))]
-        public async Task<ActionResult<ScheduleFormVO>> PostScheduleForm(ScheduleFormVO scheduleFormVO)
+        public IActionResult Post([FromBody] ScheduleFormVO scheduleFormVO)
         {
             if (scheduleFormVO == null) return BadRequest();
             var createScheduleForm = _scheduleFormsBusiness.Create(scheduleFormVO);
             return Ok(createScheduleForm);
         }
 
-        // DELETE: api/ScheduleFormAPI/5
-        [HttpDelete("{id}")]
+        [HttpPut]
         [Authorize("Bearer")]
-        [ProducesResponseType(204)]
+        [ProducesResponseType((200), Type = typeof(ScheduleFormVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public async Task<IActionResult> DeleteScheduleForm(long id)
+        [TypeFilter(typeof(HypermediaFilter))]
+        public IActionResult Put([FromBody] ScheduleFormVO scheduleFormVO)
         {
-            _scheduleFormsBusiness.Delete(id);
-            return NoContent();
+            if (scheduleFormVO == null) return BadRequest();
+            var updateScheduleForm = _scheduleFormsBusiness.Update(scheduleFormVO);
+            return Ok(updateScheduleForm);
         }
 
         [HttpPatch("{id}")]
@@ -115,10 +94,22 @@ namespace WebServiceApi.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [TypeFilter(typeof(HypermediaFilter))]
-        public async Task<IActionResult> PatchScheduleForm(long id)
+        public IActionResult Patch(long id)
         {
             var scheduleForm = _scheduleFormsBusiness.Disable(id);
             return Ok(scheduleForm);
         }
+
+        [HttpDelete("{id}")]
+        [Authorize("Bearer")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        public IActionResult Delete(long id)
+        {
+            _scheduleFormsBusiness.Delete(id);
+            return NoContent();
+        }
     }
 }
+

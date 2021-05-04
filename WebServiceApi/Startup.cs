@@ -130,7 +130,7 @@ namespace WebServiceApi
                         Contact = new OpenApiContact
                         {
                             Name = "Schedule Beauty",
-                            Url = new Uri("https://localhost:44370/Home"),
+                            Url = new Uri("https://localhost:44370/ScheduleForms/Agenda"),
                         }
 
                     }); 

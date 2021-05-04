@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebServiceApi.Models;
 using WebServiceApi.Models.Bd;
@@ -151,6 +148,28 @@ namespace WebServiceApi.Controllers
         private bool ScheduleFormExists(long id)
         {
             return _context.SchedulesForms.Any(e => e.Id == id);
+        }
+
+        public async Task<IActionResult> Agenda()
+        {
+            return View(await _context.SchedulesForms.ToListAsync());
+        }
+
+        public async Task<IActionResult> AgendaDetales(long? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var scheduleForm = await _context.SchedulesForms
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (scheduleForm == null)
+            {
+                return NotFound();
+            }
+
+            return View(scheduleForm);
         }
     }
 }

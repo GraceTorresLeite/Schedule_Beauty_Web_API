@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WebServiceApi.Models.ScheduleForm>
+
+@{
+    ViewData["Title"] = "Agenda";
+}
+
+<h1>Agenda</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<div class="row">
+    <div class="col-6">
+        <strong>SERVIÇOS</strong>
+        <hr />
+     
+        <strong> 1 - Sobrancelha: </strong>
+        <p>R$: 25,00</p>
+        <strong> 2 - Buço: </strong>
+        <p>R$: 10,00</p>
+        <strong> 3 - Axila: </strong>
+        <p>R$: 20,00</p>
+        <strong> 4 -Perna 1/2: </strong>
+        <p>R$: 20,00</p>
+        <strong> 5 - Perna: </strong>
+        <p>R$: 40,00</p>
+        <strong> 6 - Virilha: </strong>
+        <p>R$: 40,00</p>
+        <strong> 7 - Peito Masculino: </strong>
+        <p>R$: 70,00 - 100,00</p>
+        <strong> 8 - Barba: </strong>
+        <p>R$: 50,00</p>
+    </div>
+
+    <div class="col-6" id="tabela">
+        <strong>SEMANA 03 a 08/05/2021</strong>
+        <hr></hr>
+        <table class="table table-striped table-bordered " id="dtBasicExample">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date)
+                        
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>          
+                            <a asp-action="AgendaDetales" asp-route-id="@item.Id">Detales</a>                           
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+

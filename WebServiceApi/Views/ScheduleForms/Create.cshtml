@@ -24,22 +24,22 @@
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <input asp-for="Email" class="form-control" placeholder="ex: xxxx@xxxx.com" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
+                <input asp-for="Address" class="form-control" placeholder="ex: Rua nº /Bairro  / Cidade / RS" />
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
+                <input asp-for="Phone" class="form-control" placeholder="ex: 51-9xxx.xxxxx" />
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Service" class="control-label"></label>
-                <input asp-for="Service" class="form-control" />
+                <input type="number" min="1" max="8"  asp-for="Service" class="form-control" />
                 <span asp-validation-for="Service" class="text-danger"></span>
             </div>
             <div class="form-group">

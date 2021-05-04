@@ -19,7 +19,9 @@ namespace WebServiceApi.Controllers
         // GET: ScheduleForms
         public async Task<IActionResult> Index()
         {
-            return View(await _context.SchedulesForms.ToListAsync());
+            //return View(await _context.SchedulesForms.ToListAsync());
+            var asc = await _context.SchedulesForms.OrderBy(a => a.Date).ToListAsync();
+            return View(asc);
         }
 
         // GET: ScheduleForms/Details/5
@@ -151,7 +153,9 @@ namespace WebServiceApi.Controllers
 
         public async Task<IActionResult> Agenda()
         {
-            return View(await _context.SchedulesForms.ToListAsync());
+            //return View(await _context.SchedulesForms.ToListAsync());
+            var asc = await _context.SchedulesForms.OrderBy(a => a.Date).ToListAsync();
+            return View(asc);
         }
 
         public async Task<IActionResult> AgendaDetales(long? id)

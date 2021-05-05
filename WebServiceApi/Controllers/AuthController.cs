@@ -6,8 +6,9 @@ using WebServiceApi.Data.VO;
 namespace WebServiceApi.Controllers
 {
     
-    [ApiController]
+    
     [Route("api/v1/[controller]")]
+    [ApiController]
     public class AuthController : ControllerBase
     {
         private ILoginBusiness _loginBusiness;

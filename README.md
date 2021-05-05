@@ -29,3 +29,4 @@
    * [Syntax](https://docs.github.com/pt/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax)
    `<i class="fab fa-github"></i>`
    * [Autolinked](https://docs.github.com/pt/free-pro-team@latest/github/writing-on-github/autolinked-references-and-urls)
+

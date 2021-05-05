@@ -10,16 +10,16 @@ namespace WebServiceApi.Models
         [Key]
         [Column("id")]
         public int Id { get; set; }
+
         [Column("user_name")]
-       
+        [Display(Name = "Nome")]
         public string UserName { get; set; }
 
-        [Column("full_name")]
-      
+        [Column("full_name")]     
         public string FullName { get; set; }
 
         [Column("password")]
-       
+        [Display(Name = "Senha")]
         public string Password { get; set; }
 
         [Column("refresh_token")]

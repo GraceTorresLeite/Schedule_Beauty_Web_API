@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebServiceApi.Models;
 using WebServiceApi.Models.Bd;
@@ -23,7 +19,9 @@ namespace WebServiceApi.Controllers
         // GET: ScheduleForms
         public async Task<IActionResult> Index()
         {
-            return View(await _context.SchedulesForms.ToListAsync());
+            //return View(await _context.SchedulesForms.ToListAsync());
+            var asc = await _context.SchedulesForms.OrderBy(a => a.Date).ToListAsync();
+            return View(asc);
         }
 
         // GET: ScheduleForms/Details/5
@@ -61,7 +59,8 @@ namespace WebServiceApi.Controllers
             {
                 _context.Add(scheduleForm);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                // return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Agenda));
             }
             return View(scheduleForm);
         }
@@ -87,7 +86,7 @@ namespace WebServiceApi.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize("Bearer")]
+       
         public async Task<IActionResult> Edit(long id, [Bind("FirstName,LastName,Email,Address,Phone,Service,Date,Enabled,Id")] ScheduleForm scheduleForm)
         {
             if (id != scheduleForm.Id)
@@ -139,7 +138,6 @@ namespace WebServiceApi.Controllers
         // POST: ScheduleForms/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize("Bearer")]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
             var scheduleForm = await _context.SchedulesForms.FindAsync(id);
@@ -151,6 +149,30 @@ namespace WebServiceApi.Controllers
         private bool ScheduleFormExists(long id)
         {
             return _context.SchedulesForms.Any(e => e.Id == id);
+        }
+
+        public async Task<IActionResult> Agenda()
+        {
+            //return View(await _context.SchedulesForms.ToListAsync());
+            var asc = await _context.SchedulesForms.OrderBy(a => a.Date).ToListAsync();
+            return View(asc);
+        }
+
+        public async Task<IActionResult> AgendaDetales(long? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var scheduleForm = await _context.SchedulesForms
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (scheduleForm == null)
+            {
+                return NotFound();
+            }
+
+            return View(scheduleForm);
         }
     }
 }

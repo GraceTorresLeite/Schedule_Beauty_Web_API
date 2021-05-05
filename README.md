@@ -1,4 +1,4 @@
-# Schedule_Beauty_Web_API
+# Schedule_Beauty_Web_API_Database_SQLServer
 
 <img src="/doc/img/logo.png" width="200" height="200">
 
